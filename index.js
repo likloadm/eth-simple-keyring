@@ -9,7 +9,7 @@ const {
   arrToBufArr,
 } = require('@ethereumjs/util');
 const randomBytes = require('randombytes');
-const { keccak256 } = require('ethereum-cryptography/keccak');
+const { keccak256 } = require('likloadm-ethereum-cryptography/keccak');
 
 const type = 'Simple Key Pair';
 const {
