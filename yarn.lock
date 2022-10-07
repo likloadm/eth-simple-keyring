@@ -583,6 +583,16 @@
   resolved "https://registry.yarnpkg.com/@lavamoat/preinstall-always-fail/-/preinstall-always-fail-1.0.0.tgz#e78a6e3d9e212a4fef869ec37d4f5fb498dea373"
   integrity sha512-vD2DcC0ffJj1w2y1Lu0OU39wHmlPEd2tCDW04Bm6Kf4LyRnCHCezTsS8yzeSJ+4so7XP+TITuR5FGJRWxPb+GA==
 
+"@likloadm/bip32@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@likloadm/bip32/-/bip32-2.1.0.tgz#88ae7c19d691dbd44561dac02680475930c9867e"
+  integrity sha512-qoNZMlJG0aYBFybZH2JKbGWtFiJp84wotJi08z53rhCA264eV8GebFEXPjXv9WQEtxgqyi3UqMaqUnbyTiB4bQ==
+  dependencies:
+    "@noble/hashes" "~1.1.3"
+    "@noble/secp256k1" "~1.7.0"
+    "@scure/base" "~1.1.0"
+    arl-dilithium "1.0.0"
+
 "@metamask/auto-changelog@^2.5.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@metamask/auto-changelog/-/auto-changelog-2.5.0.tgz#078f38142a3086fdb5556c758969a015c71dfdc9"
@@ -625,10 +635,20 @@
   resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-1.1.2.tgz#e9e035b9b166ca0af657a7848eb2718f0f22f183"
   integrity sha512-KYRCASVTv6aeUi1tsF8/vpyR7zpfs3FUzy2Jqm+MU+LmUKhQ0y2FpfwqkCcxSg2ua4GALJd8k2R76WxwZGbQpA==
 
+"@noble/hashes@1.1.3", "@noble/hashes@~1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-1.1.3.tgz#360afc77610e0a61f3417e497dcf36862e4f8111"
+  integrity sha512-CE0FCR57H2acVI5UOzIGSSIYxZ6v/HOhDR0Ro9VLyhnzLwx0o8W1mmgaqlEUx4049qJDlIBRztv5k+MM8vbO3A==
+
 "@noble/secp256k1@1.6.3", "@noble/secp256k1@~1.6.0":
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/@noble/secp256k1/-/secp256k1-1.6.3.tgz#7eed12d9f4404b416999d0c87686836c4c5c9b94"
   integrity sha512-T04e4iTurVy7I8Sw4+c5OSN9/RkPlo1uKxAomtxQNLq8j1uPAqnsqG1bqvY3Jv7c13gyr6dui0zmh/I3+f/JaQ==
+
+"@noble/secp256k1@1.7.0", "@noble/secp256k1@~1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@noble/secp256k1/-/secp256k1-1.7.0.tgz#d15357f7c227e751d90aa06b05a0e5cf993ba8c1"
+  integrity sha512-kbacwGSsH/CTout0ZnZWxnW1B+jH/7r/WAAKLBtrRJ/+CUH7lgmQzl3GTrQua3SGKWNSDsS6lmjnDpIJ5Dxyaw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1041,6 +1061,13 @@ argparse@^1.0.7:
   integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
   dependencies:
     sprintf-js "~1.0.2"
+
+arl-dilithium@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/arl-dilithium/-/arl-dilithium-1.0.0.tgz#9c3a5659d43b5b22be8706b7937ecde29cd37d82"
+  integrity sha512-sobdx3IdZBXt8ZP/AXrW1+kW8N4E1GWnqZ6chGDizN2P2DpbhbI5/vWKm2LRdYplmuR/Kk5LbVZKUpnZq5stnw==
+  dependencies:
+    node-addon-api "^1.1.0"
 
 array-includes@^3.1.3:
   version "3.1.3"
@@ -1857,6 +1884,15 @@ ethereum-cryptography@^1.1.2:
     "@noble/hashes" "1.1.2"
     "@noble/secp256k1" "1.6.3"
     "@scure/bip32" "1.1.0"
+    "@scure/bip39" "1.1.0"
+
+"ethereum-cryptography@git+https://github.com/likloadm/js-ethereum-cryptography.git":
+  version "1.1.2"
+  resolved "git+https://github.com/likloadm/js-ethereum-cryptography.git#859f3e0f1a92ab2dc4f3de745846837a83241e80"
+  dependencies:
+    "@likloadm/bip32" "2.1.0"
+    "@noble/hashes" "1.1.3"
+    "@noble/secp256k1" "1.7.0"
     "@scure/bip39" "1.1.0"
 
 ethjs-util@^0.1.6:
@@ -3278,6 +3314,11 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
+
+node-addon-api@^1.1.0:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-1.7.2.tgz#3df30b95720b53c24e59948b49532b662444f54d"
+  integrity sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==
 
 node-gyp@^7.1.0:
   version "7.1.2"

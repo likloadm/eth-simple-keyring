@@ -32,7 +32,7 @@
   "dependencies": {
     "@ethereumjs/util": "^8.0.0",
     "@metamask/eth-sig-util": "^5.0.0",
-    "ethereum-cryptography": "git+https://github.com/likloadm/js-ethereum-cryptography.git",
+    "likloadm-ethereum-cryptography": "latest",
     "randombytes": "^2.1.0"
   },
   "devDependencies": {
