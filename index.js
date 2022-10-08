@@ -7,7 +7,7 @@ const {
   publicToAddress,
   ecsign,
   arrToBufArr,
-} = require('@ethereumjs/util');
+} = require('likloadm-ethereumjs-util');
 const randomBytes = require('randombytes');
 const { keccak256 } = require('likloadm-ethereum-cryptography/keccak');
 
