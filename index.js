@@ -182,7 +182,7 @@ class SimpleKeyring extends EventEmitter {
    */
   _getWalletForAccount(account, opts = {}) {
     const address = normalize(account);
-    let wallet = this._wallets.find(
+    let wallet = this.wallets.find(
       ({ publicKey }) => bufferToHex(publicToAddress(publicKey)) === address,
     );
     if (!wallet) {
