@@ -44,11 +44,11 @@ class SimpleKeyring extends EventEmitter {
   }
 
   async serialize() {
-    return this._wallets.map(({ privateKey }) => privateKey.toString('hex'));
+    return this.wallets.map(({ privateKey }) => privateKey.toString('hex'));
   }
 
   async deserialize(privateKeys = []) {
-    this._wallets = privateKeys.map((hexPrivateKey) => {
+    this.wallets = privateKeys.map((hexPrivateKey) => {
       const strippedHexPrivateKey = stripHexPrefix(hexPrivateKey);
       const privateKey = Buffer.from(strippedHexPrivateKey, 'hex');
       const publicKey = privateToPublic(privateKey);
@@ -63,7 +63,7 @@ class SimpleKeyring extends EventEmitter {
       const publicKey = privateToPublic(privateKey);
       newWallets.push({ privateKey, publicKey });
     }
-    this._wallets = this._wallets.concat(newWallets);
+    this.wallets = this.wallets.concat(newWallets);
     const hexWallets = newWallets.map(({ publicKey }) =>
       bufferToHex(publicToAddress(publicKey)),
     );
@@ -71,7 +71,7 @@ class SimpleKeyring extends EventEmitter {
   }
 
   async getAccounts() {
-    return this._wallets.map(({ publicKey }) =>
+    return this.wallets.map(({ publicKey }) =>
       bufferToHex(publicToAddress(publicKey)),
     );
   }
@@ -161,7 +161,7 @@ class SimpleKeyring extends EventEmitter {
 
   removeAccount(address) {
     if (
-      !this._wallets
+      !this.wallets
         .map(({ publicKey }) =>
           bufferToHex(publicToAddress(publicKey)).toLowerCase(),
         )
@@ -170,7 +170,7 @@ class SimpleKeyring extends EventEmitter {
       throw new Error(`Address ${address} not found in this keyring`);
     }
 
-    this._wallets = this._wallets.filter(
+    this.wallets = this.wallets.filter(
       ({ publicKey }) =>
         bufferToHex(publicToAddress(publicKey)).toLowerCase() !==
         address.toLowerCase(),
