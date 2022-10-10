@@ -193,7 +193,6 @@ class SimpleKeyring extends EventEmitter {
       const { privateKey } = wallet;
       const appKeyOriginBuffer = Buffer.from(opts.withAppKeyOrigin, 'utf8');
       const appKeyBuffer = Buffer.concat([privateKey, appKeyOriginBuffer]);
-      const appKeyPrivateKey = arrToBufArr(keccak256(appKeyBuffer, 256));
       const appKeyPublicKey = privateToPublic(appKeyPrivateKey);
       wallet = { privateKey: appKeyPrivateKey, publicKey: appKeyPublicKey };
     }
