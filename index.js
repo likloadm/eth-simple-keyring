@@ -156,7 +156,7 @@ class SimpleKeyring extends EventEmitter {
   // exportAccount should return a hex-encoded private key:
   async exportAccount(address, opts = {}) {
     const wallet = this._getWalletForAccount(address, opts);
-    return wallet.privateKey.toString('hex');
+    return Buffer.concat([wallet.privateKey, Buffer.from('01', 'hex'), wallet.publicKey]).toString('hex');
   }
 
   removeAccount(address) {
@@ -200,6 +200,7 @@ class SimpleKeyring extends EventEmitter {
 
     return wallet;
   }
+
 }
 
 SimpleKeyring.type = type;
